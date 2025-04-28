@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import argparse
 import matplotlib.patches as mpatches
-from Task2 import *
+from nw import *
 
 
 
@@ -106,7 +106,7 @@ def save_alignment_to_file(aligned_seq1, aligned_seq2, statistics, parameters, f
         f.write(f"Total gaps: {statistics['total_gaps']}\n\n")
 
         f.write("Alignment:\n")
-        # Print in blocks of 60 characters for better readability
+        # Print in blocks of 60 characters for prettier-print :))
         for i in range(0, len(aligned_seq1), 60):
             block_seq1 = aligned_seq1[i:i + 60]
             block_seq2 = aligned_seq2[i:i + 60]
@@ -129,6 +129,20 @@ def save_alignment_to_file(aligned_seq1, aligned_seq2, statistics, parameters, f
             f.write("All Optimal Alignments:\n\n")
             for idx, (a1, a2) in enumerate(extra_alignment, 1):
                 f.write(f"Optimal Alignment {idx}:\n")
+                for i in range(0, len(a1), 60):
+                    block_seq1 = a1[i:i + 60]
+                    block_seq2 = a2[i:i + 60]
+
+                    # Create the middle line showing matches
+                    middle = ''
+                    for j in range(len(block_seq1)):
+                        if j < len(block_seq2) and block_seq1[j] == block_seq2[j] and block_seq1[j] != '-' and \
+                                block_seq2[
+                                    j] != '-':
+                            middle += '|'
+                        else:
+                            middle += ' '
+
                 f.write(f"Seq1: {a1}\n")
                 f.write(f"      {''.join(['|' if x == y else ' ' for x, y in zip(a1, a2)])}\n")
                 f.write(f"Seq2: {a2}\n\n")
@@ -398,7 +412,9 @@ def main():
 
     match, mismatch, gap = 1, -1, -1
 
+    #
     # Interactive menu if no arguments provided
+    #
     if len(sys.argv) == 1:
         print("\n" + "=" * 60)
         print("NEEDLEMAN-WUNSCH SEQUENCE ALIGNMENT TOOL")
@@ -434,10 +450,10 @@ def main():
                 fasta_path = input("Enter path to FASTA file: ").strip()
                 try:
                     seq1, seq2 = load_sequence_fasta(fasta_path)
-                    seq_type = input("Sequence type (DNA/PROTEIN) [DNA]: ").strip().upper() or "DNA"
-                    if seq_type not in ["DNA", "PROTEIN"]:
-                        print("Invalid sequence type. Using DNA as default.")
-                        seq_type = "DNA"
+                    # seq_type = input("Sequence type (DNA/PROTEIN) [DNA]: ").strip().upper() or "DNA"
+                    # if seq_type not in ["DNA", "PROTEIN"]:
+                    #     print("Invalid sequence type. Using DNA as default.")
+                    #     seq_type = "DNA"
 
                     # if not validate_sequence(seq1, seq_type) or not validate_sequence(seq2, seq_type):
                     #     print(f"Error: Invalid {seq_type} sequence(s) in the FASTA file.")
@@ -493,7 +509,7 @@ def main():
                 if show_all_paths:
                     all_paths = find_all_optimal_paths(score_matrix, direction_matrix, seq1, seq2)
                     extra = []
-                    for idx,  path in enumerate(all_paths, 1):
+                    for idx, path in enumerate(all_paths, 1):
                         a1, a2 = convert_path_to_alignment(path, seq1, seq2)
                         extra.append((a1, a2))
 
@@ -532,7 +548,7 @@ def main():
             dotplotGraphic(dp, seq1, seq2, "Sequence Similarity Dotplot")
 
         # Run Needleman-Wunsch algorithm
-        aligned_seq1, aligned_seq2, statistics, parameters = run_needleman_wunsch(
+        aligned_seq1, aligned_seq2, statistics, parameters, score, direction = run_needleman_wunsch(
             seq1, seq2, args.match, args.mismatch, args.gap, args.all_paths)
 
         score_matrix, direction_matrix = scoring_path(seq1, seq2, match, mismatch, gap)
@@ -543,10 +559,10 @@ def main():
             extra = None
             if args.all_paths:
                 all_paths = find_all_optimal_paths(score_matrix, direction_matrix, seq1, seq2)
-                extra = []
-                for idx, path in enumerate(all_paths, 1):
-                    a1, a2 = convert_path_to_alignment(path, seq1, seq2)
-                    extra.append((f"Optimal alignment {idx}", a1, a2))
+                extra = [convert_path_to_alignment(path, seq1, seq2) for path in all_paths]
+                # for idx, path in enumerate(all_paths, 1):
+                #     a1, a2 = convert_path_to_alignment(path, seq1, seq2)
+                #     extra.append((f"Optimal alignment {idx}", a1, a2))
 
             save_alignment_to_file(aligned_seq1, aligned_seq2, statistics, parameters, args.output, extra)
 

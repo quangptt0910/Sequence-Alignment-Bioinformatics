@@ -9,7 +9,6 @@ This program implements the Needleman-Wunsch algorithm for global alignment of p
 - Python 3.6+
 - NumPy
 - Matplotlib
-- Seaborn
 
 You can install the required packages using pip:
 

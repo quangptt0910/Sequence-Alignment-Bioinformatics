@@ -7,59 +7,194 @@ Mismatch score: -1
 Gap penalty: -1
 
 Alignment Statistics:
-Alignment length: 16
-Identical matches: 11
+Alignment length: 19
+Identical matches: 15
 Percent identity: 100.00%
 Gaps in sequence 1: 2
-Gaps in sequence 2: 3
-Total gaps: 5
+Gaps in sequence 2: 2
+Total gaps: 4
 
 Alignment:
-Seq1: A-TA-GATATATGATA
-      | || |  ||| ||||
-Seq2: AGTATG--ATA-GATA
+Seq1: A-TAT-TATATATATTATA
+      | ||| ||| |||| ||||
+Seq2: ATTATATAT-TATA-TATA
 
-Found 8 optimal alignment path(s).
+Found 35 optimal alignment path(s).
 
 All Optimal Alignments:
 
 Optimal Alignment 1:
-Seq1: A-TA-GATATATGATA
-      | || |  ||| ||||
-Seq2: AGTATG--ATA-GATA
+Seq1: A-TAT-TATATATATTATA
+      | ||| ||| |||| ||||
+Seq2: ATTATATAT-TATA-TATA
 
 Optimal Alignment 2:
-Seq1: A-TAGAT-ATATGATA
-      | |  || ||| ||||
-Seq2: AGT--ATGATA-GATA
+Seq1: AT-AT-TATATATATTATA
+      || || ||| |||| ||||
+Seq2: ATTATATAT-TATA-TATA
 
 Optimal Alignment 3:
-Seq1: ATAG-AT-ATATGATA
-      |  | || ||| ||||
-Seq2: A--GTATGATA-GATA
+Seq1: A-TATTATA-TATATTATA
+      | || |||| |||| ||||
+Seq2: ATTA-TATATTATA-TATA
 
 Optimal Alignment 4:
-Seq1: A-TAGAT-ATATGATA
-      | ||  | ||| ||||
-Seq2: AGTA--TGATA-GATA
+Seq1: AT-ATTATA-TATATTATA
+      || | |||| |||| ||||
+Seq2: ATTA-TATATTATA-TATA
 
 Optimal Alignment 5:
-Seq1: A-TA-GATATATGATA
-      | || ||  || ||||
-Seq2: AGTATGA--TA-GATA
+Seq1: ATAT-TATA-TATATTATA
+      || | |||| |||| ||||
+Seq2: AT-TATATATTATA-TATA
 
 Optimal Alignment 6:
-Seq1: A-TA-GATATATGATA
-      | || |||  | ||||
-Seq2: AGTATGAT--A-GATA
+Seq1: A-TATTATA-TATATTATA
+      | ||| ||| |||| ||||
+Seq2: ATTAT-ATATTATA-TATA
 
 Optimal Alignment 7:
-Seq1: A-TA-GATATATGATA
-      | || ||||   ||||
-Seq2: AGTATGATA---GATA
+Seq1: AT-ATTATA-TATATTATA
+      || || ||| |||| ||||
+Seq2: ATTAT-ATATTATA-TATA
 
 Optimal Alignment 8:
-Seq1: ATAGATAT-AT-GATA
-      |  | ||| || ||||
-Seq2: A--G-TATGATAGATA
+Seq1: A-TATTATAT-ATATTATA
+      | || ||||| ||| ||||
+Seq2: ATTA-TATATTATA-TATA
+
+Optimal Alignment 9:
+Seq1: AT-ATTATAT-ATATTATA
+      || | ||||| ||| ||||
+Seq2: ATTA-TATATTATA-TATA
+
+Optimal Alignment 10:
+Seq1: ATAT-TATAT-ATATTATA
+      || | ||||| ||| ||||
+Seq2: AT-TATATATTATA-TATA
+
+Optimal Alignment 11:
+Seq1: A-TATTATAT-ATATTATA
+      | ||| |||| ||| ||||
+Seq2: ATTAT-ATATTATA-TATA
+
+Optimal Alignment 12:
+Seq1: AT-ATTATAT-ATATTATA
+      || || |||| ||| ||||
+Seq2: ATTAT-ATATTATA-TATA
+
+Optimal Alignment 13:
+Seq1: A-TATTATATATAT-TATA
+      | || ||||| ||| ||||
+Seq2: ATTA-TATAT-TATATATA
+
+Optimal Alignment 14:
+Seq1: AT-ATTATATATAT-TATA
+      || | ||||| ||| ||||
+Seq2: ATTA-TATAT-TATATATA
+
+Optimal Alignment 15:
+Seq1: ATAT-TATATATAT-TATA
+      || | ||||| ||| ||||
+Seq2: AT-TATATAT-TATATATA
+
+Optimal Alignment 16:
+Seq1: A-TATTATATATAT-TATA
+      | ||| |||| ||| ||||
+Seq2: ATTAT-ATAT-TATATATA
+
+Optimal Alignment 17:
+Seq1: AT-ATTATATATAT-TATA
+      || || |||| ||| ||||
+Seq2: ATTAT-ATAT-TATATATA
+
+Optimal Alignment 18:
+Seq1: ATATTATATA-TAT-TATA
+      |  ||||||| ||| ||||
+Seq2: A--TTATATATTATATATA
+
+Optimal Alignment 19:
+Seq1: ATATTATATA-TAT-TATA
+      ||  |||||| ||| ||||
+Seq2: AT--TATATATTATATATA
+
+Optimal Alignment 20:
+Seq1: ATATTATATA-TAT-TATA
+      || | ||||| ||| ||||
+Seq2: AT-T-ATATATTATATATA
+
+Optimal Alignment 21:
+Seq1: ATATTATATAT-AT-TATA
+      |  |||||||| || ||||
+Seq2: A--TTATATATTATATATA
+
+Optimal Alignment 22:
+Seq1: ATATTATATAT-AT-TATA
+      ||  ||||||| || ||||
+Seq2: AT--TATATATTATATATA
+
+Optimal Alignment 23:
+Seq1: ATATTATATAT-AT-TATA
+      || | |||||| || ||||
+Seq2: AT-T-ATATATTATATATA
+
+Optimal Alignment 24:
+Seq1: A-TAT-TATATATATTATA
+      | ||| ||| ||||| |||
+Seq2: ATTATATAT-TATAT-ATA
+
+Optimal Alignment 25:
+Seq1: AT-AT-TATATATATTATA
+      || || ||| ||||| |||
+Seq2: ATTATATAT-TATAT-ATA
+
+Optimal Alignment 26:
+Seq1: A-TATTATA-TATATTATA
+      | || |||| ||||| |||
+Seq2: ATTA-TATATTATAT-ATA
+
+Optimal Alignment 27:
+Seq1: AT-ATTATA-TATATTATA
+      || | |||| ||||| |||
+Seq2: ATTA-TATATTATAT-ATA
+
+Optimal Alignment 28:
+Seq1: ATAT-TATA-TATATTATA
+      || | |||| ||||| |||
+Seq2: AT-TATATATTATAT-ATA
+
+Optimal Alignment 29:
+Seq1: A-TATTATA-TATATTATA
+      | ||| ||| ||||| |||
+Seq2: ATTAT-ATATTATAT-ATA
+
+Optimal Alignment 30:
+Seq1: AT-ATTATA-TATATTATA
+      || || ||| ||||| |||
+Seq2: ATTAT-ATATTATAT-ATA
+
+Optimal Alignment 31:
+Seq1: A-TATTATAT-ATATTATA
+      | || ||||| |||| |||
+Seq2: ATTA-TATATTATAT-ATA
+
+Optimal Alignment 32:
+Seq1: AT-ATTATAT-ATATTATA
+      || | ||||| |||| |||
+Seq2: ATTA-TATATTATAT-ATA
+
+Optimal Alignment 33:
+Seq1: ATAT-TATAT-ATATTATA
+      || | ||||| |||| |||
+Seq2: AT-TATATATTATAT-ATA
+
+Optimal Alignment 34:
+Seq1: A-TATTATAT-ATATTATA
+      | ||| |||| |||| |||
+Seq2: ATTAT-ATATTATAT-ATA
+
+Optimal Alignment 35:
+Seq1: AT-ATTATAT-ATATTATA
+      || || |||| |||| |||
+Seq2: ATTAT-ATATTATAT-ATA
 

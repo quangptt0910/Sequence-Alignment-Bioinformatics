@@ -1,7 +1,85 @@
-Params: match=1, mismatch=-1, gap=-1
-Seq1: ACTGG
-Seq2: ACAGG
+NEEDLEMAN-WUNSCH SEQUENCE ALIGNMENT RESULTS
+==================================================
 
-Path 1: length=5, identity=80.00%, gaps=0.00%
-ACTGG
-ACAGG
+Algorithm Parameters:
+Match score: 1
+Mismatch score: -1
+Gap penalty: -1
+
+Alignment Statistics:
+Alignment length: 13
+Identical matches: 7
+Percent identity: 77.78%
+Gaps in sequence 1: 2
+Gaps in sequence 2: 2
+Total gaps: 4
+
+Alignment:
+Seq1: ACCCGGTTTAC--
+      | || ||  ||  
+Seq2: A-CC-GTACACGT
+
+Found 12 optimal alignment path(s).
+
+All Optimal Alignments:
+
+Optimal Alignment 1:
+Seq1: ACCCGGTTTAC--
+      | || ||  ||  
+Seq2: A-CC-GTACACGT
+
+Optimal Alignment 2:
+Seq1: ACCCGGTTTAC--
+      || | ||  ||  
+Seq2: AC-C-GTACACGT
+
+Optimal Alignment 3:
+Seq1: ACCCGGTTTAC--
+      |||  ||  ||  
+Seq2: ACC--GTACACGT
+
+Optimal Alignment 4:
+Seq1: ACCCGGTTTAC--
+      | ||| |  ||  
+Seq2: A-CCG-TACACGT
+
+Optimal Alignment 5:
+Seq1: ACCCGGTTTAC--
+      || || |  ||  
+Seq2: AC-CG-TACACGT
+
+Optimal Alignment 6:
+Seq1: ACCCGGTTTAC--
+      ||| | |  ||  
+Seq2: ACC-G-TACACGT
+
+Optimal Alignment 7:
+Seq1: ACCCGGTTTAC--
+      | || ||  ||  
+Seq2: A-CC-GTACACGT
+
+Optimal Alignment 8:
+Seq1: ACCCGGTTTAC--
+      || | ||  ||  
+Seq2: AC-C-GTACACGT
+
+Optimal Alignment 9:
+Seq1: ACCCGGTTTAC--
+      |||  ||  ||  
+Seq2: ACC--GTACACGT
+
+Optimal Alignment 10:
+Seq1: ACCCGGTTTAC--
+      | ||| |  ||  
+Seq2: A-CCG-TACACGT
+
+Optimal Alignment 11:
+Seq1: ACCCGGTTTAC--
+      || || |  ||  
+Seq2: AC-CG-TACACGT
+
+Optimal Alignment 12:
+Seq1: ACCCGGTTTAC--
+      ||| | |  ||  
+Seq2: ACC-G-TACACGT
+
