@@ -1,0 +1,65 @@
+NEEDLEMAN-WUNSCH SEQUENCE ALIGNMENT RESULTS
+==================================================
+
+Algorithm Parameters:
+Match score: 1
+Mismatch score: -1
+Gap penalty: -1
+
+Alignment Statistics:
+Alignment length: 16
+Identical matches: 11
+Percent identity: 100.00%
+Gaps in sequence 1: 2
+Gaps in sequence 2: 3
+Total gaps: 5
+
+Alignment:
+Seq1: A-TA-GATATATGATA
+      | || |  ||| ||||
+Seq2: AGTATG--ATA-GATA
+
+Found 8 optimal alignment path(s).
+
+All Optimal Alignments:
+
+Optimal Alignment 1:
+Seq1: A-TA-GATATATGATA
+      | || |  ||| ||||
+Seq2: AGTATG--ATA-GATA
+
+Optimal Alignment 2:
+Seq1: A-TAGAT-ATATGATA
+      | |  || ||| ||||
+Seq2: AGT--ATGATA-GATA
+
+Optimal Alignment 3:
+Seq1: ATAG-AT-ATATGATA
+      |  | || ||| ||||
+Seq2: A--GTATGATA-GATA
+
+Optimal Alignment 4:
+Seq1: A-TAGAT-ATATGATA
+      | ||  | ||| ||||
+Seq2: AGTA--TGATA-GATA
+
+Optimal Alignment 5:
+Seq1: A-TA-GATATATGATA
+      | || ||  || ||||
+Seq2: AGTATGA--TA-GATA
+
+Optimal Alignment 6:
+Seq1: A-TA-GATATATGATA
+      | || |||  | ||||
+Seq2: AGTATGAT--A-GATA
+
+Optimal Alignment 7:
+Seq1: A-TA-GATATATGATA
+      | || ||||   ||||
+Seq2: AGTATGATA---GATA
+
+Optimal Alignment 8:
+Seq1: ATAGATAT-AT-GATA
+      |  | ||| || ||||
+Seq2: A--G-TATGATAGATA
+

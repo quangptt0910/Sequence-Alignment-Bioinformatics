@@ -1,0 +1,7 @@
+Params: match=1, mismatch=-1, gap=-1
+Seq1: ACTGG
+Seq2: ACAGG
+
+Path 1: length=5, identity=80.00%, gaps=0.00%
+ACTGG
+ACAGG
