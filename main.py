@@ -390,15 +390,18 @@ def run_needleman_wunsch(seq1, seq2, match=1, mismatch=-1, gap=-1, show_all_path
 
     return aligned_seq1, aligned_seq2, statistics, parameters, score_matrix, direction_matrix
 
+def save_results_to_file(file_path, results):
+    with open(file_path, 'w') as f:
+        f.write(results)
 
 def main():
     """
     Main function to run the sequence alignment program
     """
     parser = argparse.ArgumentParser(description='Needleman-Wunsch Sequence Alignment Tool')
-    parser.add_argument('--fasta', type=str, help='Path to FASTA file with two sequences')
-    parser.add_argument('--seq1', type=str, help='First sequence (if not using FASTA)')
-    parser.add_argument('--seq2', type=str, help='Second sequence (if not using FASTA)')
+    parser.add_argument('--fasta', nargs=2,type=str, help='Path to 2 FASTA file with sequences')
+    parser.add_argument('--seq1', type=str, help='First sequence (if not using FASTA)', required=False)
+    parser.add_argument('--seq2', type=str, help='Second sequence (if not using FASTA)', required=False)
     parser.add_argument('--match', type=int, default=1, help='Score for matches (default: 1)')
     parser.add_argument('--mismatch', type=int, default=-1, help='Score for mismatches (default: -1)')
     parser.add_argument('--gap', type=int, default=-1, help='Penalty for gaps (default: -1)')
@@ -429,11 +432,7 @@ def main():
             choice = input("\nEnter your choice (1-3): ")
 
             if choice == '1':
-                # print("\nEnter the sequences:")
-                # seq_type = input("Sequence type (DNA/PROTEIN) [DNA]: ").strip().upper() or "DNA"
-                # if seq_type not in ["DNA", "PROTEIN"]:
-                #     print("Invalid sequence type. Using DNA as default.")
-                #     seq_type = "DNA"
+                print("\nEnter the sequences:")
 
                 seq1 = input("Enter sequence 1: ").strip().upper()
                 seq2 = input("Enter sequence 2: ").strip().upper()
@@ -524,8 +523,11 @@ def main():
     else:
         # Command-line mode
         if args.fasta:
+            if len(args.fasta) != 2:
+                print("Error: Please provide two FASTA files as input.")
+                sys.exit(1)
             try:
-                seq1, seq2 = load_sequence_fasta(args.fasta)
+                seq1, seq2 = load_sequence_fasta(args.fasta[0], args.fasta[1])
             except Exception as e:
                 print(f"Error loading FASTA file: {e}")
                 sys.exit(1)
@@ -537,10 +539,6 @@ def main():
             parser.print_help()
             sys.exit(1)
 
-        # # Validate sequences
-        # if not validate_sequence(seq1, args.type) or not validate_sequence(seq2, args.type):
-        #     print(f"Error: Invalid {args.type} sequence(s).")
-        #     sys.exit(1)
 
         # Generate dotplot if requested
         if args.dotplot:
@@ -560,9 +558,6 @@ def main():
             if args.all_paths:
                 all_paths = find_all_optimal_paths(score_matrix, direction_matrix, seq1, seq2)
                 extra = [convert_path_to_alignment(path, seq1, seq2) for path in all_paths]
-                # for idx, path in enumerate(all_paths, 1):
-                #     a1, a2 = convert_path_to_alignment(path, seq1, seq2)
-                #     extra.append((f"Optimal alignment {idx}", a1, a2))
 
             save_alignment_to_file(aligned_seq1, aligned_seq2, statistics, parameters, args.output, extra)
 

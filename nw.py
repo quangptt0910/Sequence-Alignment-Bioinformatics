@@ -260,7 +260,7 @@ def visualize_alignment(seq1, seq2, score, path_coord):
     :return:
     """
     # Create figure and axis
-    plt.figure(figsize=(len(seq1) + 2, len(seq2) + 2))
+    plt.figure(figsize=(12, 10))
     ax = plt.gca() # Create new Axes using Figure
 
     # Get dimensions

@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This program implements the Needleman-Wunsch algorithm for global alignment of protein or DNA sequences. It provides both a command-line interface and an interactive menu-driven interface for ease of use.
+This program implements the Needleman-Wunsch algorithm for global alignment of sequences. It provides both a command-line interface and an interactive menu-driven interface for ease of use.
 
 ## Requirements
 
@@ -19,13 +19,13 @@ pip install numpy matplotlib
 ## Files
 
 - `main.py`: The main application with interactive menu and command-line interface
-- `task2.py`: Contains the core algorithm implementations
+- `nw.py`: Contains the core Needleman-Wunsch algorithm implementations 
 
 ## Features
 
 1. **Sequence Input**:
    - Manual entry of sequences
-   - Loading sequences from FASTA files
+   - Loading sequences from (2) FASTA files
 
 2. **Alignment Parameters**:
    - Customizable match score
@@ -68,10 +68,12 @@ You can also run the program with command-line arguments:
 
 ```bash
 python main.py --seq1 ACGCACTA --seq2 ACTGATTA --match 1 --mismatch -1 --gap -1 --output results.txt --dotplot --all_paths
+or
+python main.py --fasta fasta1.fa fasta2.fa --output fasta_result.txt
 ```
 
 Available options:
-- `--fasta`: Path to a FASTA file containing two sequences
+- `--fasta`: Path to 2 FASTA files containing sequences
 - `--seq1`, `--seq2`: Input sequences directly
 - `--match`: Score for matches (default: 1)
 - `--mismatch`: Score for mismatches (default: -1)

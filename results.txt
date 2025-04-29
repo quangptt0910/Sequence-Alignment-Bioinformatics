@@ -7,79 +7,24 @@ Mismatch score: -1
 Gap penalty: -1
 
 Alignment Statistics:
-Alignment length: 13
-Identical matches: 7
-Percent identity: 77.78%
-Gaps in sequence 1: 2
-Gaps in sequence 2: 2
-Total gaps: 4
+Alignment length: 9
+Identical matches: 6
+Percent identity: 85.71%
+Gaps in sequence 1: 1
+Gaps in sequence 2: 1
+Total gaps: 2
 
 Alignment:
-Seq1: ACCCGGTTTAC--
-      | || ||  ||  
-Seq2: A-CC-GTACACGT
+Seq1: AC-GCACTA
+      || | | ||
+Seq2: ACTG-ATTA
 
-Found 12 optimal alignment path(s).
+Found 1 optimal alignment path(s).
 
 All Optimal Alignments:
 
 Optimal Alignment 1:
-Seq1: ACCCGGTTTAC--
-      | || ||  ||  
-Seq2: A-CC-GTACACGT
-
-Optimal Alignment 2:
-Seq1: ACCCGGTTTAC--
-      || | ||  ||  
-Seq2: AC-C-GTACACGT
-
-Optimal Alignment 3:
-Seq1: ACCCGGTTTAC--
-      |||  ||  ||  
-Seq2: ACC--GTACACGT
-
-Optimal Alignment 4:
-Seq1: ACCCGGTTTAC--
-      | ||| |  ||  
-Seq2: A-CCG-TACACGT
-
-Optimal Alignment 5:
-Seq1: ACCCGGTTTAC--
-      || || |  ||  
-Seq2: AC-CG-TACACGT
-
-Optimal Alignment 6:
-Seq1: ACCCGGTTTAC--
-      ||| | |  ||  
-Seq2: ACC-G-TACACGT
-
-Optimal Alignment 7:
-Seq1: ACCCGGTTTAC--
-      | || ||  ||  
-Seq2: A-CC-GTACACGT
-
-Optimal Alignment 8:
-Seq1: ACCCGGTTTAC--
-      || | ||  ||  
-Seq2: AC-C-GTACACGT
-
-Optimal Alignment 9:
-Seq1: ACCCGGTTTAC--
-      |||  ||  ||  
-Seq2: ACC--GTACACGT
-
-Optimal Alignment 10:
-Seq1: ACCCGGTTTAC--
-      | ||| |  ||  
-Seq2: A-CCG-TACACGT
-
-Optimal Alignment 11:
-Seq1: ACCCGGTTTAC--
-      || || |  ||  
-Seq2: AC-CG-TACACGT
-
-Optimal Alignment 12:
-Seq1: ACCCGGTTTAC--
-      ||| | |  ||  
-Seq2: ACC-G-TACACGT
+Seq1: AC-GCACTA
+      || | | ||
+Seq2: ACTG-ATTA
 
