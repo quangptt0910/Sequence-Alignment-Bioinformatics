@@ -1,5 +1,6 @@
 # Needleman-Wunsch Sequence Alignment Tool
 
+#### *https://github.com/quangptt0910/Sequence-Alignment-Bioinformatics*
 ## Introduction
 
 This program implements the Needleman-Wunsch algorithm for global alignment of sequences. It provides both a command-line interface and an interactive menu-driven interface for ease of use.
@@ -67,7 +68,8 @@ After loading sequences, you can:
 You can also run the program with command-line arguments:
 
 ```bash
-python main.py --seq1 ACGCACTA --seq2 ACTGATTA --match 1 --mismatch -1 --gap -1 --output results.txt --dotplot --all_paths
+python main.py --seq1 ACGCACTA --seq2 ACTGATTA --match 1 --mismatch -1 --gap -1 
+--output results.txt --dotplot --all_paths
 or
 python main.py --fasta fasta1.fa fasta2.fa --output fasta_result.txt
 ```
