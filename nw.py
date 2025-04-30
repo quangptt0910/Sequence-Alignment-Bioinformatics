@@ -249,29 +249,32 @@ def traceback_alignment(seq1, seq2, direction):
     # Reverse the coordinate path for the result
     return ''.join(aligned_seq1[::-1]), ''.join(aligned_seq2[::-1]), path_coord[::-1]
 
-def visualize_alignment(seq1, seq2, score, path_coord):
+def visualize_alignment(seq1, seq2, score, path_coord, max_len=100):
     """
     Visualize the alignment scoring matrix and traceback path
     :param seq1:
     :param seq2:
     :param score:
-    :param direction:
     :param path_coord:
-    :return:
+    :param max_len: maximum num of rows/columns to display - default = 100
     """
-    # Create figure and axis
-    plt.figure(figsize=(12, 10))
-    ax = plt.gca() # Create new Axes using Figure
-
     # Get dimensions
     rows, cols = score.shape
 
     # for visualize matrix one larger in each dimension for sequences
-    visual_rows = rows + 1
-    visual_cols = cols + 1
+    visual_rows = min(rows + 1, max_len)
+    visual_cols = min(cols + 1, max_len)
+
+    # Create figure and axis
+    plt.figure(figsize=(min(12, 0.25 *visual_cols ), min(12, 0.25 *visual_rows)))
+    ax = plt.gca() # Create new Axes using Figure
 
     # Create a mask for the alignment path cells
     path_set = set((y + 1, x + 1) for y, x in path_coord)
+
+    # dynamic font size
+    default_font_size = 7
+    font_size = max(3, min(default_font_size, default_font_size * 50 / max(rows, cols)))
 
     # Draw the grid and fill cells
     for i in range(visual_rows):
@@ -282,37 +285,31 @@ def visualize_alignment(seq1, seq2, score, path_coord):
 
             # Top left
             if i == 0 and j == 0:
-                ax.text(j + 0.5, i + 0.5, "D", ha='center', va='center',fontweight='bold')
+                ax.text(j + 0.5, i + 0.5, "D", ha='center', va='center',fontweight='bold',fontsize=font_size)
 
             # First row will contain seq2
-            elif i == 0 and j >= 2:
-                if j - 2 < len(seq2):
-                    ax.text(j + 0.5, i + 0.5,f"{seq2[j - 2]}{j - 1}", ha='center', va='center')
+            elif i == 0 and j >= 2 and j - 2 < len(seq2):
+                ax.text(j + 0.5, i + 0.5,f"{seq2[j - 2]}{j - 1}", ha='center', va='center', fontsize=font_size)
 
-            elif i >= 2 and j == 0:
-                if i - 2 < len(seq1):
-                    ax.text(j + 0.5, i + 0.5,f"{seq1[i - 2]}{i - 1}", ha='center', va='center')
+            elif i >= 2 and j == 0 and i - 2 < len(seq1):
+                ax.text(j + 0.5, i + 0.5,f"{seq1[i - 2]}{i - 1}", ha='center', va='center', fontsize=font_size)
 
             # Add score value in each cell - contains other score from score matrix
-            elif i >= 1 and j >= 1:
-
-                score_i = i - 1
-                score_j = j - 1
+            elif i > 0 and j > 0 and i <= rows and j <= cols:
                 if (i, j) in path_set:
                     rect_fill = plt.Rectangle((j, i), 1, 1, fill=True, facecolor='royalblue', alpha=0.5)
                     ax.add_patch(rect_fill)
-                if score_i < rows and score_j < cols:
-                    ax.text(j + 0.5, i + 0.5, f"{score[score_i, score_j]}",
-                        ha='center', va='center', fontsize=11)
+                ax.text(j + 0.5, i + 0.5, f"{score[i - 1, j - 1]}",
+                        ha='center', va='center', fontsize=font_size)
 
     # Calculate alignment score (value at bottom-right cell)
     alignment_score = score[rows - 1, cols - 1]
     ax.text(1, rows + 1.5, f"Score: {alignment_score}", ha='center', va='center',
-            fontsize=12, fontweight='bold', color='gray')
+            fontsize=font_size, fontweight='bold', color='gray')
 
     # Set limits and remove ticks
-    ax.set_xlim(-0.1, visual_cols + 0.1)
-    ax.set_ylim(visual_rows + 0.1, -0.1)  # Inverted y-axis to match matrix orientation
+    ax.set_xlim(-0.5, visual_cols + 0.5)
+    ax.set_ylim(visual_rows + 0.5, -0.5)  # Inverted y-axis to match matrix orientation
     ax.set_xticks([])
     ax.set_yticks([])
 

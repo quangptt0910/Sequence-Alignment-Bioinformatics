@@ -384,8 +384,10 @@ def run_needleman_wunsch(seq1, seq2, match=1, mismatch=-1, gap=-1, show_all_path
                 path_aligned_seq1, path_aligned_seq2 = convert_path_to_alignment(path, seq1, seq2)
                 print(f"\nOptimal Alignment {i + 1}:")
                 print(f"Seq1: {path_aligned_seq1}")
-                print(
-                    f"      {''.join(['|' if path_aligned_seq1[j] == path_aligned_seq2[j] and path_aligned_seq1[j] != '-' and path_aligned_seq2[j] != '-' else ' ' for j in range(len(path_aligned_seq1))])}")
+                print(f"      {''.join(['|' if path_aligned_seq1[j] == path_aligned_seq2[j] 
+                                               and path_aligned_seq1[j] != '-' 
+                                               and path_aligned_seq2[j] != '-'
+                                        else ' ' for j in range(len(path_aligned_seq1))])}")
                 print(f"Seq2: {path_aligned_seq2}")
 
     return aligned_seq1, aligned_seq2, statistics, parameters, score_matrix, direction_matrix
@@ -441,22 +443,11 @@ def main():
                     print("Error: Sequences cannot be empty.")
                     continue
 
-                # if not validate_sequence(seq1, seq_type) or not validate_sequence(seq2, seq_type):
-                #     print(f"Error: Invalid {seq_type} sequence(s).")
-                #     continue
-
             elif choice == '2':
-                fasta_path = input("Enter path to FASTA file: ").strip()
+                fasta1_path = input("Enter path to first FASTA file: ").strip()
+                fasta2_path = input("Enter path to second FASTA file: ").strip()
                 try:
-                    seq1, seq2 = load_sequence_fasta(fasta_path)
-                    # seq_type = input("Sequence type (DNA/PROTEIN) [DNA]: ").strip().upper() or "DNA"
-                    # if seq_type not in ["DNA", "PROTEIN"]:
-                    #     print("Invalid sequence type. Using DNA as default.")
-                    #     seq_type = "DNA"
-
-                    # if not validate_sequence(seq1, seq_type) or not validate_sequence(seq2, seq_type):
-                    #     print(f"Error: Invalid {seq_type} sequence(s) in the FASTA file.")
-                    #     continue
+                    seq1, seq2 = load_sequence_fasta(fasta1_path, fasta2_path)
 
                 except Exception as e:
                     print(f"Error loading FASTA file: {e}")
